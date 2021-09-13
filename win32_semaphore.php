@@ -11,7 +11,7 @@
 
 	It will also try to replicate the `sysvsem` extension API, with some differences :
 	- `sem_get()` permissions are ignored ;
-	- `sem_release()` can release a semaphore not owned by the process ;
+	- `sem_release()` can release a semaphore not acquired by the process ;
 	- the bugs are not the same.
 
 */
