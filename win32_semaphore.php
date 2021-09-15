@@ -65,7 +65,7 @@ if
 		public function acquire( bool $non_blocking , int $timeout_ms = 0xFFFFffff ) : bool
 		{
 			return 
-				( $this->semaphore !== false )
+				( $this->semaphore != null )
 				and
 				( 0 == self::$win32->WaitForSingleObject( $this->semaphore , $non_blocking ? 0 : $timeout_ms ) )
 				;
@@ -74,7 +74,7 @@ if
 		public function release() : bool
 		{
 			return
-				( $this->semaphore !== false )
+				( $this->semaphore != null )
 				and
 				( 0 != self::$win32->ReleaseSemaphore( $this->semaphore , 1 , null ) )
 				;
@@ -83,7 +83,7 @@ if
 		public function remove() : bool
 		{
 			return
-				( $this->semaphore !== false )
+				( $this->semaphore != null )
 				and
 				( 0 != self::$win32->CloseHandle( $this->semaphore ) )
 				and
